@@ -28,14 +28,15 @@ def optimize(P):
 	MaxEpisodes = 10000
 
 	while True:
-		s1 = rd.randint(-1,1)
-		s2 = rd.randint(-1,1)
+		s1 = rd.randint(-1,1)*rd.random()
+		s2 = rd.randint(-1,1)*rd.random()
 		nextP = [P[0]+s1 , P[1]+s2]
 
 		if loss(P) < loss(nextP) : 
 			failCount += 1
 		else :
 			P = nextP
+			failCount = 0
 
 		if failCount == MaxEpisodes : 
 			return P
